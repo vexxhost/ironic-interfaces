@@ -35,6 +35,10 @@
         }:
         {
           treefmt = {
+            programs.black = {
+              enable = true;
+            };
+
             programs.nixfmt = {
               enable = true;
             };

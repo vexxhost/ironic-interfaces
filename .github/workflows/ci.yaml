@@ -1,0 +1,22 @@
+name: ci
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  stestr:
+    runs-on: ubuntu-latest
+    permissions:
+      checks: write
+    steps:
+      - uses: actions/checkout@v5
+      - uses: astral-sh/setup-uv@v7
+      - run: uv sync
+      - run: stestr run --slowest --parallel --subunit | subunit2junitxml > junit.xml
+      - uses: mikepenz/action-junit-report@v5
+        if: always()
+        with:
+          report_paths: junit.xml
