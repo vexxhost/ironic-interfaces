@@ -1,0 +1,7 @@
+[project]
+name = "ironic-interfaces"
+version = "0.0.0"
+description = "Collection of custom Ironic interfaces"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
