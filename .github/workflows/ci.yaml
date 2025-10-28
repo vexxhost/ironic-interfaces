@@ -15,7 +15,7 @@ jobs:
       - uses: actions/checkout@v5
       - uses: astral-sh/setup-uv@v7
       - run: uv sync
-      - run: uv run stestr run --slowest --parallel --subunit | uv run subunit2junitxml > junit.xml
+      - run: uv run stestr run --slowest --parallel --subunit | uv run subunit2junitxml -o junit.xml
       - uses: mikepenz/action-junit-report@v5
         if: always()
         with:
