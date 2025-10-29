@@ -45,6 +45,13 @@
           };
 
           devshells.default = {
+            env = [
+              {
+                name = "LD_LIBRARY_PATH";
+                value = "${pkgs.stdenv.cc.cc.lib}/lib";
+              }
+            ];
+
             packages =
               with pkgs;
               [

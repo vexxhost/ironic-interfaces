@@ -8,6 +8,12 @@ dependencies = [
     "ironic>=26.0.0",
 ]
 
+[project.entry-points."ironic.hardware.interfaces.bios"]
+redfish-bluefield-ethernet = "ironic_interfaces.lenovo.bios:BlueFieldEthernetRedfishBIOS"
+
+[project.entry-points."ironic.hardware.types"]
+lenovo = "ironic_interfaces.lenovo.hardware:LenovoHardware"
+
 [dependency-groups]
 dev = [
     "fixtures>=4.2.6",
@@ -18,4 +24,8 @@ dev = [
 
 [[tool.mypy.overrides]]
 module = "ironic.*"
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = "oslo_service.*"
 ignore_missing_imports = true
