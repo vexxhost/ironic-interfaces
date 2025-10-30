@@ -10,21 +10,21 @@ jobs:
   black:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
-      - uses: psf/black@25.9.0
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
+      - uses: psf/black@af0ba72a73598c76189d6dd1b21d8532255d5942 # 25.9.0
 
   mypy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
-      - uses: astral-sh/setup-uv@v7
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
+      - uses: astral-sh/setup-uv@85856786d1ce8acfbcc2f13a5f3fbd6b938f9f41 # v7
       - run: uv run mypy ironic_interfaces
 
   pylint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
-      - uses: astral-sh/setup-uv@v7
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
+      - uses: astral-sh/setup-uv@85856786d1ce8acfbcc2f13a5f3fbd6b938f9f41 # v7
       - run: uv run pylint ironic_interfaces
 
   stestr:
@@ -36,14 +36,14 @@ jobs:
     permissions:
       checks: write
     steps:
-      - uses: actions/checkout@v5
-      - uses: astral-sh/setup-uv@v7
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
+      - uses: astral-sh/setup-uv@85856786d1ce8acfbcc2f13a5f3fbd6b938f9f41 # v7
         with:
           python-version: ${{ matrix.python-version }}
       - run: uv run stestr run --slowest --parallel --subunit | uv run subunit2junitxml -o junit.xml
       - run: uv run stestr last
         if: always()
-      - uses: mikepenz/action-junit-report@v5
+      - uses: mikepenz/action-junit-report@3585e9575db828022551b4231f165eb59a0e74e3 # v5
         if: always()
         with:
           check_name: "JUnit Test Report (${{ matrix.python-version }})"
