@@ -46,4 +46,5 @@ jobs:
       - uses: mikepenz/action-junit-report@v5
         if: always()
         with:
+          check_name: "JUnit Test Report (${{ matrix.python-version }})"
           report_paths: junit.xml
