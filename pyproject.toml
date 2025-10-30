@@ -29,3 +29,6 @@ ignore_missing_imports = true
 [[tool.mypy.overrides]]
 module = "oslo_service.*"
 ignore_missing_imports = true
+
+[tool.pylint.format]
+max-line-length = 120

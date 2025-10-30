@@ -1,6 +1,11 @@
 # SPDX-FileCopyrightText: 2025 VEXXHOST Inc.
 # SPDX-License-Identifier: Apache-2.0
 
+"""
+BIOS interface for Lenovo systems with NVIDIA Bluefield cards.
+"""
+
+from ironic.conductor import task_manager
 from ironic.drivers.modules.redfish import bios, utils
 
 
@@ -11,7 +16,7 @@ class BlueFieldEthernetRedfishBIOS(bios.RedfishBIOS):
     as Infiniband devices.
     """
 
-    def post_reset(self, task):
+    def post_reset(self, task: task_manager.TaskManager) -> None:
         system = utils.get_system(task.node)
 
         settings = [
