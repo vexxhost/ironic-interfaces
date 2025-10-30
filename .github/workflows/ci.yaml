@@ -40,6 +40,8 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       - run: uv run stestr run --slowest --parallel --subunit | uv run subunit2junitxml -o junit.xml
+      - run: uv run stestr last
+        if: always()
       - uses: mikepenz/action-junit-report@v5
         if: always()
         with:
