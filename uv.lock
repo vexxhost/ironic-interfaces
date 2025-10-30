@@ -727,7 +727,7 @@ wheels = [
 [[package]]
 name = "ironic-interfaces"
 version = "0.0.0"
-source = { virtual = "." }
+source = { editable = "." }
 dependencies = [
     { name = "ironic" },
 ]
