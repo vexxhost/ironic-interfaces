@@ -1,6 +1,10 @@
 # SPDX-FileCopyrightText: 2025 VEXXHOST Inc.
 # SPDX-License-Identifier: Apache-2.0
 
+"""
+Hardware type for Lenovo systems using Redfish.
+"""
+
 from ironic.drivers import redfish
 
 from ironic_interfaces.lenovo import bios

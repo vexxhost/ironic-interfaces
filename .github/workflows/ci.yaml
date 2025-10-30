@@ -17,22 +17,26 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
-      - uses: tsuyoshicho/action-mypy@v5.1.1
+      - run: uv run mypy ironic_interfaces
 
   pylint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
-      - uses: dciborow/action-pylint@0.1.1
+      - run: uv run pylint ironic_interfaces
 
   stestr:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.11", "3.12"]
     permissions:
       checks: write
     steps:
       - uses: actions/checkout@v5
       - uses: astral-sh/setup-uv@v7
-      - run: uv sync
+        with:
+          python-version: ${{ matrix.python-version }}
       - run: uv run stestr run --slowest --parallel --subunit | uv run subunit2junitxml -o junit.xml
       - uses: mikepenz/action-junit-report@v5
         if: always()

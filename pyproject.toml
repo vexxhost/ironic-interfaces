@@ -3,9 +3,19 @@ name = "ironic-interfaces"
 version = "0.0.0"
 description = "Collection of custom Ironic interfaces"
 readme = "README.md"
-requires-python = ">=3.11"
+requires-python = ">=3.10"
 dependencies = [
     "ironic>=26.0.0",
+]
+
+[dependency-groups]
+dev = [
+    "fixtures>=4.2.6",
+    "junitxml>=0.7",
+    "mypy>=1.18.2",
+    "oslotest>=5.0.1",
+    "pylint>=4.0.2",
+    "stestr>=4.2.0",
 ]
 
 [project.entry-points."ironic.hardware.interfaces.bios"]
@@ -13,14 +23,6 @@ redfish-bluefield-ethernet = "ironic_interfaces.lenovo.bios:BlueFieldEthernetRed
 
 [project.entry-points."ironic.hardware.types"]
 lenovo = "ironic_interfaces.lenovo.hardware:LenovoHardware"
-
-[dependency-groups]
-dev = [
-    "fixtures>=4.2.6",
-    "junitxml>=0.7",
-    "oslotest>=5.0.1",
-    "stestr>=4.2.0",
-]
 
 [[tool.mypy.overrides]]
 module = "ironic.*"
