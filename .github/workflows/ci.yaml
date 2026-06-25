@@ -16,7 +16,7 @@ jobs:
           egress-policy: audit
 
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
-      - uses: psf/black@af0ba72a73598c76189d6dd1b21d8532255d5942 # 25.9.0
+      - uses: psf/black@87928e6d6761a4a6d22250e1fee5601b3998086e # 26.5.1
 
   mypy:
     runs-on: ubuntu-latest
