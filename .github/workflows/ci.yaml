@@ -15,7 +15,7 @@ jobs:
         with:
           egress-policy: audit
 
-      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - uses: psf/black@af0ba72a73598c76189d6dd1b21d8532255d5942 # 25.9.0
 
   mypy:
@@ -26,7 +26,7 @@ jobs:
         with:
           egress-policy: audit
 
-      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - uses: step-security/setup-uv@b7a67e252a34d13c33d09d47f03ebecdfadce06a # v8.3.2
       - run: uv run mypy ironic_interfaces
 
@@ -38,7 +38,7 @@ jobs:
         with:
           egress-policy: audit
 
-      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - uses: step-security/setup-uv@b7a67e252a34d13c33d09d47f03ebecdfadce06a # v8.3.2
       - run: uv run pylint ironic_interfaces
 
@@ -56,7 +56,7 @@ jobs:
         with:
           egress-policy: audit
 
-      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - uses: step-security/setup-uv@b7a67e252a34d13c33d09d47f03ebecdfadce06a # v8.3.2
         with:
           python-version: ${{ matrix.python-version }}
